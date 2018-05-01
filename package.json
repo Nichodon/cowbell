@@ -1,0 +1,14 @@
+{
+  "name": "cowbell",
+  "version": "0.1.0",
+  "description": "Project Management Tool",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Nichodon",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.8.6"
+  }
+}
