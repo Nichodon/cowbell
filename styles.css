@@ -1,7 +1,80 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 * {
     font-family: 'Open Sans';
+    margin: 0;
+    padding: 0;
 }
 *:not(strong) {
     font-weight: lighter;
+}
+html,
+body {
+    height: 100%;
+}
+.frame {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.column {
+    width: 100%;
+}
+.main {
+    display: flex;
+    height: 100%;
+}
+.frame h1 {
+    background-color: #096;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+}
+.selector {
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 200px;
+}
+.selector p {
+    font-size: 12px;
+    padding: 10px;
+}
+.selected {
+    background-color: #eee;
+}
+.item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    margin: 10px;
+}
+.date {
+    background-color: #eee;
+    font-size: 12px;
+    padding: 16px 10px 10px 10px;
+    text-align: right;
+    width: 80px;
+}
+.body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.item h2 {
+    font-size: 18px;
+    flex: 1;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: calc(100% - 20px);
+}
+i {
+    transition: 0.1s;
+}
+i:hover {
+    transform: scale(1.25);
 }
