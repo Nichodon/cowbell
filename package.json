@@ -6,9 +6,17 @@
   "scripts": {
     "start": "electron ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nichodon/cowbell.git"
+  },
   "author": "Nichodon",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nichodon/cowbell/issues"
+  },
+  "homepage": "https://github.com/Nichodon/cowbell#readme",
   "devDependencies": {
-    "electron": "^1.8.6"
+    "electron": "^2.0.0"
   }
 }
