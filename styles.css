@@ -17,6 +17,12 @@ body {
     height: 100%;
     width: 100%;
 }
+.top {
+    -webkit-app-region: drag;
+}
+.top i {
+    -webkit-app-region: no-drag;
+}
 .main {
     display: flex;
     height: 100%;

@@ -29,6 +29,11 @@ class Project {
 }
 
 let projects = []
+const remote = require('electron').remote;
+
+function destroy() {
+    remote.getCurrentWindow().close()
+}
 
 function addProject(p) {
     projects.push(p)
