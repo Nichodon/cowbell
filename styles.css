@@ -95,17 +95,14 @@ i {
     padding: 10px;
 }
 .item {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-bottom: 1px solid #eee;
     display: flex;
     margin: 10px 10px 0 10px;
 }
 .date {
-    background-color: #ccc;
-    border-bottom-left-radius: 4px;
-    border-top-left-radius: 4px;
-    color: #fff;
+    background-color: #eee;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     font-size: 12px;
     padding: 16px 10px 10px 10px;
     text-align: right;
@@ -117,7 +114,7 @@ i {
     width: 100%;
 }
 .item h2 {
-    font-size: 18px;
+    font-size: 16px;
     flex: 1;
 }
 .buttons {
