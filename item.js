@@ -31,6 +31,13 @@ class Project {
 let projects = []
 const remote = require('electron').remote;
 
+function min() {
+    remote.getCurrentWindow().minimize()
+}
+function max() {
+    let window = remote.getCurrentWindow()
+    window.isMaximized() ? window.unmaximize() : window.maximize();
+}
 function destroy() {
     remote.getCurrentWindow().close()
 }

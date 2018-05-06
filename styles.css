@@ -11,6 +11,9 @@ html,
 body {
     height: 100%;
 }
+p {
+    font-size: 12px;
+}
 .frame {
     display: flex;
     flex-direction: column;
@@ -18,10 +21,23 @@ body {
     width: 100%;
 }
 .top {
+    align-items: center;
+    background-color: #333;
+    display: flex;
     -webkit-app-region: drag;
 }
+.top p {
+    color: #fff;
+    flex-grow: 1;
+    padding: 10px;
+}
 .top i {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    opacity: 1;
     -webkit-app-region: no-drag;
+    vertical-align: middle;
 }
 .main {
     display: flex;
@@ -34,7 +50,6 @@ body {
     width: 200px;
 }
 .selector p {
-    font-size: 12px;
     padding: 10px;
 }
 .selected {
@@ -99,4 +114,7 @@ i {
 }
 i:hover {
     transform: scale(1.25);
+}
+.clear {
+    background-color: #c03;
 }
