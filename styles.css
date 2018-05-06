@@ -26,6 +26,11 @@ p {
     display: flex;
     -webkit-app-region: drag;
 }
+.top img {
+    height: 16x;
+    margin-left: 10px;
+    width: 16px;
+}
 .top p {
     color: #fff;
     flex-grow: 1;
