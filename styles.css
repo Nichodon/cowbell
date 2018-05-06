@@ -14,6 +14,9 @@ body {
 p {
     font-size: 12px;
 }
+i {
+    vertical-align: middle;
+}
 .frame {
     display: flex;
     flex-direction: column;
@@ -42,23 +45,34 @@ p {
     padding: 10px;
     opacity: 1;
     -webkit-app-region: no-drag;
-    vertical-align: middle;
 }
 .main {
     display: flex;
     height: 100%;
 }
 .selector {
-    background-color: #eee;
+    background-color: #ddd;
     display: flex;
     flex-direction: column;
     width: 200px;
 }
-.selector p {
+#project {
+    display: flex;
+    flex-direction: column;
+}
+#project p {
+    background-color: #eee;
     padding: 10px;
 }
+.selector .add p {
+    padding: 10px;
+    text-align: center;
+}
+.selector .add i {
+    font-size: 18px;
+}
 .selected {
-    background-color: #3c9;
+    background-color: #3c9 !important;
     color: #fff;
 }
 .column {
@@ -71,7 +85,7 @@ p {
     flex-direction: column;
     width: 100%;
 }
-.add i {
+.column .add i {
     margin: 10px;
 }
 .frame h1 {

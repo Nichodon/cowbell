@@ -88,6 +88,25 @@ function updateCategory(c) {
     }
 }
 
+function updateProject(p) {
+    let div = document.getElementById('project')
+    /*while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }*/
+    for (let i = 0; i < p.categories.length; i++) {
+        let j = p.categories[i]
+        
+        let title = document.createElement('p')
+        title.innerHTML = j.title
+
+        div.appendChild(title)
+    }
+}
+
 let c = new Category('a')
 c.addItem(new Item('a', 'a', 'a'))
 updateCategory(c)
+
+let p = new Project('a')
+p.addCategory(c)
+updateProject(p)
