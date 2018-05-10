@@ -10,6 +10,7 @@ class Category {
     constructor(title) {
         this.title = title
         this.items = []
+        this.select
     }
 
     addItem(i) {
@@ -29,14 +30,15 @@ class Project {
 }
 
 let projects = []
-const remote = require('electron').remote;
+let current
+const remote = require('electron').remote
 
 function min() {
     remote.getCurrentWindow().minimize()
 }
 function max() {
     let window = remote.getCurrentWindow()
-    window.isMaximized() ? window.unmaximize() : window.maximize();
+    window.isMaximized() ? window.unmaximize() : window.maximize()
 }
 function destroy() {
     remote.getCurrentWindow().close()
@@ -44,6 +46,18 @@ function destroy() {
 
 function addProject(p) {
     projects.push(p)
+}
+
+function select(e) {
+    c
+}
+
+function index(e) {
+    let i = 0
+    while((e = e.previousSibling) != null) {
+        i++
+    }
+    return i
 }
 
 function updateCategory(c) {
@@ -57,9 +71,9 @@ function updateCategory(c) {
         let item = document.createElement('div')
         item.classList.add('item')
         
-        let date = document.createElement('p')
+        let date = document.createElement('input')
+        date.type = 'date'
         date.classList.add('date')
-        date.innerHTML = j.date
         item.appendChild(date)
 
         let body = document.createElement('div')
@@ -98,9 +112,11 @@ function updateProject(p) {
         
         let title = document.createElement('p')
         title.innerHTML = j.title
+        j.select = title
 
         div.appendChild(title)
     }
+    current = p.categories[0]
 }
 
 let c = new Category('a')

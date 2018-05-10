@@ -11,8 +11,23 @@ html,
 body {
     height: 100%;
 }
-p {
+p,
+input {
     font-size: 12px;
+}
+*:focus {
+    outline: none;
+}
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type=date]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type=date] {
+    border: none;
 }
 i {
     vertical-align: middle;
@@ -53,8 +68,8 @@ i {
 .selector {
     background-color: #ddd;
     display: flex;
+    flex: 0 0 200px;
     flex-direction: column;
-    width: 200px;
 }
 #project {
     display: flex;
@@ -103,10 +118,8 @@ i {
     background-color: #eee;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    font-size: 12px;
-    padding: 16px 10px 10px 10px;
+    flex: 0 0 100px;
     text-align: right;
-    width: 80px;
 }
 .body {
     display: flex;

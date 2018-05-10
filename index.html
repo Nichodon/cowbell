@@ -23,7 +23,7 @@
             <div class="main">
                 <div class="selector">
                     <div id="project">
-                        <p>Option</p>
+                        <p onclick="select(this)">Option</p>
                         <p class="selected">Period A</p>
                         <p>Important</p>
                         <p>Clubs</p>
@@ -35,10 +35,10 @@
                 <div class="column">
                     <div id="category">
                         <div class="item">
-                            <p class="date">2018-05-02</p>
+                            <input type="date" class="date" required="required">
                             <div class="body">
                                 <div class="buttons">
-                                    <h2>Do Homework 1</h2>
+                                    <h2 contenteditable="true" oninput="console.log(this)">Do Homework 1</h2>
                                     <i class="material-icons">star</i>
                                     <i class="material-icons">clear</i>
                                 </div>
