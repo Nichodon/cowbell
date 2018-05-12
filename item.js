@@ -36,10 +36,12 @@ const remote = require('electron').remote
 function min() {
     remote.getCurrentWindow().minimize()
 }
+
 function max() {
     let window = remote.getCurrentWindow()
     window.isMaximized() ? window.unmaximize() : window.maximize()
 }
+
 function destroy() {
     remote.getCurrentWindow().close()
 }
@@ -49,7 +51,8 @@ function addProject(p) {
 }
 
 function select(e) {
-    c
+    current = open.categories[index(e)]
+    updateCategory(current)
 }
 
 function index(e) {
@@ -103,6 +106,8 @@ function updateCategory(c) {
         item.appendChild(body)
         div.appendChild(item)
     }
+
+    doCurrent()
 }
 
 function updateProject(p) {
@@ -114,18 +119,36 @@ function updateProject(p) {
         let j = p.categories[i]
         
         let title = document.createElement('p')
+        title.onclick = function() {
+            select(title)
+        }
         title.innerHTML = j.title
         j.select = title
 
         div.appendChild(title)
     }
     current = p.categories[0]
+    doCurrent()
 }
+
+function doCurrent() {
+    for (let i = 0; i < open.categories.length; i++) {
+        let j = open.categories[i]
+        j.select.classList.remove('selected')
+    }
+    current.select.classList.add('selected')
+}
+
 
 let c = new Category('a')
 c.addItem(new Item('a', 'a', new Date().toISOString().split('T')[0]))
-updateCategory(c)
 
-let p = new Project('a')
-p.addCategory(c)
-updateProject(p)
+let d = new Category('b')
+d.addItem(new Item('b', 'a', new Date().toISOString().split('T')[0]))
+
+let open = new Project('a')
+open.addCategory(c)
+open.addCategory(d)
+updateProject(open)
+
+updateCategory(c)
