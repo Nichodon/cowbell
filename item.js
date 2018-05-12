@@ -21,7 +21,7 @@ class Category {
 class Project {
     constructor(title) {
         this.title = title
-        this.categories = []
+        this.categories = [new Category('New Category')]
     }
 
     addCategory(c) {
@@ -143,6 +143,10 @@ function updateProject(p, a) {
         j.select = title
 
         div.appendChild(title)
+        title.style.animation = 'slide 0'
+        if (i == p.categories.length - 1) {
+            title.style.animation = 'slide 0.2s'
+        }
     }
 
     if (a) {
@@ -159,16 +163,5 @@ function doCurrent() {
     current.select.classList.add('selected')
 }
 
-
-let c = new Category('a')
-c.addItem(new Item('a', 'a', new Date().toISOString().split('T')[0]))
-
-let d = new Category('b')
-d.addItem(new Item('b', 'a', new Date().toISOString().split('T')[0]))
-
-let open = new Project('a')
-open.addCategory(c)
-open.addCategory(d)
+let open = new Project('Hello')
 updateProject(open, true)
-
-updateCategory(c, false)
