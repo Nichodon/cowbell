@@ -92,6 +92,7 @@ i {
 .selected {
     background-color: #3c9 !important;
     color: #fff;
+    transition: 0.2s;
 }
 .column {
     display: flex;
@@ -113,9 +114,20 @@ i {
     padding: 10px;
 }
 .item {
+    animation: slide 0.2s;
     border-bottom: 1px solid #eee;
     display: flex;
     margin: 10px 10px 0 10px;
+}
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 .date {
     background-color: #eee;
