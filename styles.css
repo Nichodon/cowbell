@@ -114,7 +114,6 @@ i {
     padding: 10px;
 }
 .item {
-    animation: slide 0.2s;
     border-bottom: 1px solid #eee;
     display: flex;
     margin: 10px 10px 0 10px;

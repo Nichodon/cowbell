@@ -52,7 +52,19 @@ function addProject(p) {
 
 function select(e) {
     current = open.categories[index(e)]
-    updateCategory(current)
+    updateCategory(current, true)
+}
+
+function newItem() {
+    let i = new Item('New Item', 'Description', new Date().toISOString().split('T')[0])
+    current.addItem(i)
+    updateCategory(current, false)
+}
+
+function newCategory() {
+    let c = new Category('New Category')
+    open.addCategory(c)
+    updateProject(open, false)
 }
 
 function index(e) {
@@ -63,7 +75,7 @@ function index(e) {
     return i
 }
 
-function updateCategory(c) {
+function updateCategory(c, a) {
     let div = document.getElementById('category')
     while (div.firstChild) {
         div.removeChild(div.firstChild);
@@ -105,12 +117,17 @@ function updateCategory(c) {
         body.appendChild(buttons)
         item.appendChild(body)
         div.appendChild(item)
+
+        item.style.animation = 'slide 0'
+        if (a || i == c.items.length - 1) {
+            item.style.animation = 'slide 0.2s'
+        }
     }
 
     doCurrent()
 }
 
-function updateProject(p) {
+function updateProject(p, a) {
     let div = document.getElementById('project')
     while (div.firstChild) {
         div.removeChild(div.firstChild);
@@ -127,7 +144,10 @@ function updateProject(p) {
 
         div.appendChild(title)
     }
-    current = p.categories[0]
+
+    if (a) {
+        current = p.categories[0]
+    }
     doCurrent()
 }
 
@@ -149,6 +169,6 @@ d.addItem(new Item('b', 'a', new Date().toISOString().split('T')[0]))
 let open = new Project('a')
 open.addCategory(c)
 open.addCategory(d)
-updateProject(open)
+updateProject(open, true)
 
-updateCategory(c)
+updateCategory(c, false)
