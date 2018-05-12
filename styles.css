@@ -7,6 +7,9 @@
 *:not(strong) {
     font-weight: lighter;
 }
+*::selection {
+    background: none;
+}
 html,
 body {
     height: 100%;
@@ -129,6 +132,9 @@ i {
 .item h2 {
     font-size: 16px;
     flex: 1;
+}
+.item h2::selection {
+    background-color: rgba(0, 0, 0, 0.25);
 }
 .buttons {
     display: flex;
