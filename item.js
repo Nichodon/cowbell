@@ -62,9 +62,9 @@ function index(e) {
 
 function updateCategory(c) {
     let div = document.getElementById('category')
-    /*while (div.firstChild) {
+    while (div.firstChild) {
         div.removeChild(div.firstChild);
-    }*/
+    }
     for (let i = 0; i < c.items.length; i++) {
         let j = c.items[i]
         
@@ -74,6 +74,8 @@ function updateCategory(c) {
         let date = document.createElement('input')
         date.type = 'date'
         date.classList.add('date')
+        date.required = true
+        date.value = j.date
         item.appendChild(date)
 
         let body = document.createElement('div')
@@ -83,6 +85,7 @@ function updateCategory(c) {
         buttons.classList.add('buttons')
 
         let h2 = document.createElement('h2')
+        h2.contentEditable = true
         h2.innerHTML = j.title
         buttons.appendChild(h2)
 
@@ -104,9 +107,9 @@ function updateCategory(c) {
 
 function updateProject(p) {
     let div = document.getElementById('project')
-    /*while (div.firstChild) {
+    while (div.firstChild) {
         div.removeChild(div.firstChild);
-    }*/
+    }
     for (let i = 0; i < p.categories.length; i++) {
         let j = p.categories[i]
         
@@ -120,7 +123,7 @@ function updateProject(p) {
 }
 
 let c = new Category('a')
-c.addItem(new Item('a', 'a', 'a'))
+c.addItem(new Item('a', 'a', new Date().toISOString().split('T')[0]))
 updateCategory(c)
 
 let p = new Project('a')
