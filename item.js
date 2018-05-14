@@ -75,6 +75,11 @@ function index(e) {
     return i
 }
 
+function edit(e) {
+    current.items[index(e)].title = e.querySelector('h2').innerHTML
+    current.items[index(e)].date = e.querySelector('input').value
+}
+
 function updateCategory(c, a) {
     let div = document.getElementById('category')
     while (div.firstChild) {
@@ -90,6 +95,9 @@ function updateCategory(c, a) {
         date.type = 'date'
         date.classList.add('date')
         date.required = true
+        date.oninput = function() {
+            edit(item)
+        }
         date.value = j.date
         item.appendChild(date)
 
@@ -101,8 +109,17 @@ function updateCategory(c, a) {
 
         let h2 = document.createElement('h2')
         h2.contentEditable = true
+        h2.oninput = function() {
+            edit(item)
+        }
         h2.innerHTML = j.title
         buttons.appendChild(h2)
+        
+        h2.addEventListener('keypress', function(e) {
+            if (e.which === 13) {
+                e.preventDefault();
+            }
+        });
 
         let star = document.createElement('i')
         star.classList.add('material-icons')
