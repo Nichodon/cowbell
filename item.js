@@ -184,6 +184,7 @@ function updateProject(p, a) {
 
     if (a) {
         current = p.categories[0]
+        updateCategory(current, true)
     }
     doCurrent()
 }
@@ -196,15 +197,17 @@ function doCurrent() {
     current.select.classList.add('selected')
 }
 
-let open = new Project('Hi COWW')
-let json = JSON.parse(JSON.stringify(open))
-fs.writeFile("test.json", JSON.stringify(json, null, '\t'), function(err) {
-
-})
+let open
 
 fs.readFile("test.json", function(err, data) {
     open = JSON.parse(data)
+    console.log(open)
     Object.setPrototypeOf(open, Project.prototype)
     open.setup()
     updateProject(open, true)
 })
+
+function save() {
+    let json = JSON.parse(JSON.stringify(open))
+    fs.writeFile("test.json", JSON.stringify(json, null, '\t'), function(err) {})
+}
