@@ -16,6 +16,13 @@ class Category {
     addItem(i) {
         this.items.push(i)
     }
+
+    setup() {
+        for (let i = 0; i < this.items.length; i++) {
+            let j = this.items[i]
+            Object.setPrototypeOf(j, Item.prototype)
+        }
+    }
 }
 
 class Project {
@@ -27,11 +34,20 @@ class Project {
     addCategory(c) {
         this.categories.push(c)
     }
+
+    setup() {
+        for (let i = 0; i < this.categories.length; i++) {
+            let j = this.categories[i]
+            Object.setPrototypeOf(j, Category.prototype)
+            j.setup()
+        }
+    }
 }
 
 let projects = []
 let current
 const remote = require('electron').remote
+const fs = require('fs');
 
 function min() {
     remote.getCurrentWindow().minimize()
@@ -180,5 +196,15 @@ function doCurrent() {
     current.select.classList.add('selected')
 }
 
-let open = new Project('Hello')
-updateProject(open, true)
+let open = new Project('Hi COWW')
+let json = JSON.parse(JSON.stringify(open))
+fs.writeFile("test.json", JSON.stringify(json, null, '\t'), function(err) {
+
+})
+
+fs.readFile("test.json", function(err, data) {
+    open = JSON.parse(data)
+    Object.setPrototypeOf(open, Project.prototype)
+    open.setup()
+    updateProject(open, true)
+})
