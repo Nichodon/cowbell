@@ -136,11 +136,7 @@ function updateCategory(c, a) {
         date.value = j.date
         item.appendChild(date)
 
-        let body = document.createElement('div')
-        body.classList.add('body')
-        
-        let buttons = document.createElement('div')
-        buttons.classList.add('buttons')
+        let fixed = document.createElement('div')
 
         let h2 = document.createElement('h2')
         h2.contentEditable = true
@@ -148,7 +144,7 @@ function updateCategory(c, a) {
             edit(item)
         }
         h2.innerHTML = j.title
-        buttons.appendChild(h2)
+        fixed.appendChild(h2)
         
         h2.addEventListener('keypress', function(e) {
             if (e.which === 13) {
@@ -156,18 +152,18 @@ function updateCategory(c, a) {
             }
         });
 
+        item.appendChild(fixed)
+
         let star = document.createElement('i')
         star.classList.add('material-icons')
         star.innerHTML = 'star'
-        buttons.appendChild(star)
+        item.appendChild(star)
 
         let del = document.createElement('i')
         del.classList.add('material-icons')
         del.innerHTML = 'clear'
-        buttons.appendChild(del)
-
-        body.appendChild(buttons)
-        item.appendChild(body)
+        item.appendChild(del)
+        
         div.appendChild(item)
 
         item.style.animation = 'slide 0'

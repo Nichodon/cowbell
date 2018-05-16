@@ -110,6 +110,9 @@ i {
     top: 50%;
     transform: translate(30px, -50%);
 }
+.selector p {
+    max-width: calc(100% - 25px);
+}
 #project .selected i {
     transform: translate(0, -50%);
 }
@@ -120,14 +123,15 @@ i {
 }
 .column {
     display: flex;
+    flex-basis: calc(100% - 200px);
     flex-direction: column;
-    width: 100%;
+    overflow: hidden;
 }
 #category {
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .column .add i {
     margin: 10px;
@@ -139,10 +143,11 @@ i {
     padding: 10px;
 }
 .item {
+    align-items: center;
     border-bottom: 1px solid #eee;
     display: flex;
-    flex-shrink: 0;
     margin: 10px 10px 0 10px;
+    overflow: hidden;
 }
 @keyframes slide {
     0% {
@@ -155,30 +160,30 @@ i {
     }
 }
 .date {
+    align-self: stretch;
     background-color: #eee;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     flex: 0 0 100px;
     text-align: right;
 }
-.body {
-    display: flex;
-    flex-direction: column;
+.item div {
+    overflow: hidden;
+    padding: 10px;
     width: 100%;
 }
 .item h2 {
     font-size: 16px;
-    flex: 1;
 }
 .item h2::selection,
 .selector p[contenteditable=true]::selection {
     background-color: rgba(0, 0, 0, 0.25);
 }
-.buttons {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    width: calc(100% - 20px);
+.item h2,
+.selector p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 i {
     cursor: pointer;
