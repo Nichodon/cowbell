@@ -75,12 +75,14 @@ function newItem() {
     let i = new Item('New Item', 'Description', new Date().toISOString().split('T')[0])
     current.addItem(i)
     updateCategory(current, false)
+    save()
 }
 
 function newCategory() {
     let c = new Category('New Category')
     open.addCategory(c)
     updateProject(open, false)
+    save()
 }
 
 function index(e) {
@@ -94,6 +96,7 @@ function index(e) {
 function edit(e) {
     current.items[index(e)].title = e.querySelector('h2').innerHTML
     current.items[index(e)].date = e.querySelector('input').value
+    save()
 }
 
 let content = null
@@ -105,7 +108,8 @@ function change(e) {
 }
 
 function modify(e) {
-    open.categories[index(e)].title = e.innerHTML
+    open.categories[index(e)].title = e.querySelector('p').innerHTML
+    save()
 }
 
 document.body.addEventListener('click', function(e) {
@@ -191,7 +195,7 @@ function updateProject(p, a) {
         
         let title = document.createElement('p')
         title.oninput = function() {
-            modify(title)
+            modify(wrap)
         }
         title.innerHTML = j.title
         wrap.appendChild(title)
@@ -240,4 +244,5 @@ fs.readFile("test.json", function(err, data) {
 function save() {
     let json = JSON.parse(JSON.stringify(open))
     fs.writeFile("test.json", JSON.stringify(json, null, '\t'), function(err) {})
+    console.log('a')
 }
