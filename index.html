@@ -9,31 +9,25 @@
             <div class="top">
                 <img src="cowbell.png">
                 <p>Cowbell</p>
-                <div>
-                    <i class="material-icons" onclick="save()">save</i>
-                </div>
-                <div>
-                    <i class="material-icons" onclick="min()">remove</i>
-                </div>
-                <div>
-                    <i class="material-icons" onclick="max()">add</i>
-                </div>
-                <div class="clear">
-                    <i class="material-icons" onclick="destroy()">clear</i>
-                </div>
+                <i class="material-icons" onclick="save()">save</i>
+                <i class="material-icons" onclick="min()">remove</i>
+                <i class="material-icons" onclick="max()">add</i>
+                <i class="material-icons clear" onclick="destroy()">clear</i>
             </div>
-            <h1>Hello</h1>
-            <div class="main">
-                <div class="selector">
-                    <div id="project"></div>
-                    <div class="add">
-                        <p><i class="material-icons" onclick="newCategory()">add_circle</i></p>
+            <div id="window" class="show">
+                <h1>Hello<i class="material-icons" onclick="toggle()">arrow_downward</i></h1>
+                <div class="main">
+                    <div class="selector">
+                        <div id="project"></div>
+                        <div class="add">
+                            <p><i class="material-icons" onclick="newCategory()">add_circle</i></p>
+                        </div>
                     </div>
-                </div>
-                <div class="column">
-                    <div id="category"></div>
-                    <div class="add">
-                        <i class="material-icons" onclick="newItem()">add</i>
+                    <div class="column">
+                        <div id="category"></div>
+                        <div class="add">
+                            <i class="material-icons" onclick="newItem()">add</i>
+                        </div>
                     </div>
                 </div>
             </div>

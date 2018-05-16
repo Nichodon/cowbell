@@ -62,6 +62,10 @@ function destroy() {
     remote.getCurrentWindow().close()
 }
 
+function toggle() {
+    document.getElementById('window').classList.remove('show')
+}
+
 function addProject(p) {
     projects.push(p)
 }

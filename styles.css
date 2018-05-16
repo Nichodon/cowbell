@@ -22,6 +22,7 @@
 }
 html,
 body {
+    background-color: #666;
     height: 100%;
 }
 p,
@@ -49,7 +50,21 @@ i {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
     width: 100%;
+}
+#window {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transform: translateY(100%);
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+    width: 100%;
+}
+.show {
+    transform: translateY(0) !important;
 }
 .top {
     align-items: center;
@@ -58,9 +73,9 @@ i {
     -webkit-app-region: drag;
 }
 .top img {
-    height: 16x;
+    height: 20px;
     margin-left: 10px;
-    width: 16px;
+    width: 20px;
 }
 .top p {
     color: #fff;
@@ -146,6 +161,11 @@ i {
     font-size: 18px;
     padding: 10px;
 }
+h1 i {
+    opacity: 1;
+    position: absolute;
+    right: 10px;
+}
 .item {
     align-items: center;
     border-bottom: 1px solid #eee;
@@ -205,7 +225,4 @@ i {
 }
 i:hover {
     opacity: 0.5;
-}
-.clear {
-    background-color: #c03;
 }
