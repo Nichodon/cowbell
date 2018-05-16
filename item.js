@@ -67,8 +67,10 @@ function addProject(p) {
 }
 
 function select(e) {
-    current = open.categories[index(e)]
-    updateCategory(current, true)
+    if (!e.classList.contains('selected')) {
+        current = open.categories[index(e)]
+        updateCategory(current, true)
+    }
 }
 
 function newItem() {
@@ -109,6 +111,27 @@ function change(e) {
 
 function modify(e) {
     open.categories[index(e)].title = e.querySelector('p').innerHTML
+    save()
+}
+
+function removeItem(e) {
+    e.style.animation = 'glide 0.2s forwards'
+    setTimeout(function() {
+        current.items.splice(index(e), 1)
+        e.parentNode.removeChild(e)
+    }, 200)
+    save()
+}
+
+function removeCategory(e) {
+    e.children[0].style.animation = 'glide 0.2s forwards'
+    setTimeout(function() {
+        open.categories.splice(index(e), 1)
+        e.parentNode.removeChild(e)
+        current = open.categories[0]
+        updateProject(open)
+        updateCategory(current)
+    }, 200)
     save()
 }
 
@@ -165,6 +188,9 @@ function updateCategory(c, a) {
 
         let del = document.createElement('i')
         del.classList.add('material-icons')
+        del.onclick = function() {
+            removeItem(item)
+        }
         del.innerHTML = 'clear'
         item.appendChild(del)
         
@@ -211,7 +237,7 @@ function updateProject(p, a) {
         let clear = document.createElement('i')
         clear.classList.add('material-icons')
         clear.onclick = function() {
-            change(title)
+            removeCategory(wrap)
         }
         clear.innerHTML = 'clear'
         wrap.appendChild(clear)
@@ -243,7 +269,6 @@ let open
 
 fs.readFile("test.json", function(err, data) {
     open = JSON.parse(data)
-    console.log(open)
     Object.setPrototypeOf(open, Project.prototype)
     open.setup()
     updateProject(open, true)
@@ -252,5 +277,4 @@ fs.readFile("test.json", function(err, data) {
 function save() {
     let json = JSON.parse(JSON.stringify(open))
     fs.writeFile("test.json", JSON.stringify(json, null, '\t'), function(err) {})
-    console.log('a')
 }
