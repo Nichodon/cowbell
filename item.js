@@ -96,6 +96,25 @@ function edit(e) {
     current.items[index(e)].date = e.querySelector('input').value
 }
 
+let content = null
+
+function change(e) {
+    content = e
+    e.contentEditable = true
+    window.getSelection().selectAllChildren(e);
+}
+
+function modify(e) {
+    open.categories[index(e)].title = e.innerHTML
+}
+
+document.body.addEventListener('click', function(e) {
+    if (e.target != content && e.target.innerHTML != 'edit' && content != null) {
+        content.contentEditable = false
+        content = null
+    }
+})
+
 function updateCategory(c, a) {
     let div = document.getElementById('category')
     while (div.firstChild) {
@@ -167,15 +186,30 @@ function updateProject(p, a) {
     }
     for (let i = 0; i < p.categories.length; i++) {
         let j = p.categories[i]
+
+        let wrap = document.createElement('div')
+        wrap.onclick = function() {
+            select(wrap)
+        }
+        j.select = wrap
         
         let title = document.createElement('p')
-        title.onclick = function() {
-            select(title)
+        title.oninput = function() {
+            modify(title)
         }
         title.innerHTML = j.title
-        j.select = title
+        wrap.appendChild(title)
 
-        div.appendChild(title)
+        let edit = document.createElement('i')
+        edit.classList.add('material-icons')
+        edit.onclick = function() {
+            change(title)
+        }
+        edit.innerHTML = 'edit'
+        wrap.appendChild(edit)
+
+        div.appendChild(wrap)
+
         title.style.animation = 'slide 0'
         if (i == p.categories.length - 1) {
             title.style.animation = 'slide 0.2s'

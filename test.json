@@ -2,7 +2,7 @@
 	"title": "Hi COWW",
 	"categories": [
 		{
-			"title": "New Category",
+			"title": "Idk",
 			"items": [
 				{
 					"title": "New Item",
@@ -13,6 +13,11 @@
 					"title": "New Iteasdfam",
 					"description": "Description",
 					"date": "2018-05-15"
+				},
+				{
+					"title": "New Item",
+					"description": "Description",
+					"date": "2018-05-16"
 				}
 			],
 			"select": {}
@@ -26,6 +31,11 @@
 					"date": "9999-05-15"
 				}
 			],
+			"select": {}
+		},
+		{
+			"title": "New Category",
+			"items": [],
 			"select": {}
 		}
 	]
