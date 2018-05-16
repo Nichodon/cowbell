@@ -208,6 +208,14 @@ function updateProject(p, a) {
         edit.innerHTML = 'edit'
         wrap.appendChild(edit)
 
+        let clear = document.createElement('i')
+        clear.classList.add('material-icons')
+        clear.onclick = function() {
+            change(title)
+        }
+        clear.innerHTML = 'clear'
+        wrap.appendChild(clear)
+
         div.appendChild(wrap)
 
         title.style.animation = 'slide 0'
