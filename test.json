@@ -2,90 +2,6 @@
 	"title": "Hi COWW",
 	"categories": [
 		{
-			"title": "aaaaaaaaaaaaaadddddddddddddddd",
-			"items": [
-				{
-					"title": "New Itemaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddaaaa",
-					"description": "Description",
-					"date": "2018-05-15"
-				},
-				{
-					"title": "New Iteasdfam",
-					"description": "Description",
-					"date": "2018-05-15"
-				},
-				{
-					"title": "New Itemawoefhoawejfi",
-					"description": "Description",
-					"date": "2018-05-16"
-				},
-				{
-					"title": "z",
-					"description": "Description",
-					"date": "2018-05-16"
-				},
-				{
-					"title": "a",
-					"description": "Description",
-					"date": "2018-05-16"
-				}
-			],
-			"select": {}
-		},
-		{
-			"title": "New Category",
-			"items": [
-				{
-					"title": "yas!a",
-					"description": "Description",
-					"date": "9999-05-15"
-				}
-			],
-			"select": {}
-		},
-		{
-			"title": "New Category",
-			"items": [],
-			"select": {}
-		},
-		{
-			"title": "BASEBALESJKBSLKEJB",
-			"items": [
-				{
-					"title": "New Itemasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-					"description": "Description",
-					"date": "2018-05-16"
-				}
-			],
-			"select": {}
-		},
-		{
-			"title": "New Category",
-			"items": [],
-			"select": {}
-		},
-		{
-			"title": "New Category",
-			"items": [
-				{
-					"title": "New awhefiaweoifjwioaefj",
-					"description": "Description",
-					"date": "2018-07-16"
-				},
-				{
-					"title": "New Item",
-					"description": "Description",
-					"date": "2018-05-16"
-				},
-				{
-					"title": "New Itedfsdfklasdfm",
-					"description": "Description",
-					"date": "2018-05-16"
-				}
-			],
-			"select": {}
-		},
-		{
 			"title": "New Category",
 			"items": [
 				{
@@ -103,11 +19,6 @@
 		},
 		{
 			"title": "New Category",
-			"items": [],
-			"select": {}
-		},
-		{
-			"title": "apweiofjipowiajefopwajeopf",
 			"items": [],
 			"select": {}
 		}
