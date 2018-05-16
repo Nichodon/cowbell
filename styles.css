@@ -14,11 +14,11 @@
     opacity: 0;
 }
 *::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.125);
     width: 5px;
 }
 *::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.25);
 }
 html,
 body {
@@ -89,9 +89,11 @@ i {
     flex-direction: column;
     overflow: auto;
 }
-#project p {
+#project div {
     background-color: #eee;
+    overflow: hidden;
     padding: 10px;
+    position: relative;
 }
 .selector .add p {
     padding: 10px;
@@ -99,6 +101,17 @@ i {
 }
 .selector .add i {
     font-size: 18px;
+}
+.selector i {
+    color: #000;
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(30px, -50%);
+}
+.selected i {
+    transform: translate(0, -50%);
 }
 .selected {
     background-color: #3c9 !important;
@@ -157,8 +170,9 @@ i {
     font-size: 16px;
     flex: 1;
 }
-.item h2::selection {
-    background-color: rgba(0, 0, 0, 0.2);
+.item h2::selection,
+.selector p::selection {
+    background-color: rgba(0, 0, 0, 0.25);
 }
 .buttons {
     display: flex;
@@ -172,7 +186,7 @@ i {
     transition: 0.1s;
 }
 i:hover {
-    transform: scale(1.25);
+    opacity: 0.5;
 }
 .clear {
     background-color: #c03;
