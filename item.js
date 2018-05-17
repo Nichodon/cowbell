@@ -118,6 +118,11 @@ function modify(e) {
     save()
 }
 
+function bigChoose(e) {
+    open = everything[index(e)]
+    updateProject(open)
+}
+
 function removeItem(e) {
     e.style.animation = 'glide 0.2s forwards'
     setTimeout(function() {
@@ -259,6 +264,29 @@ function updateProject(p, a) {
         updateCategory(current, true)
     }
     doCurrent()
+
+    document.getElementById('window').classList.add('show')
+}
+
+function updateEverything() {
+    let div = document.getElementById('menu')
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
+    for (let i = 0; i < everything.length; i++) {
+        let j = everything[i]
+        
+        let thing = document.createElement('div')
+        thing.onclick = function() {
+            bigChoose(thing)
+        }
+
+        let h1 = document.createElement('h1')
+        h1.innerHTML = j.title
+        thing.appendChild(h1)
+
+        div.appendChild(thing)
+    }
 }
 
 function doCurrent() {
@@ -269,16 +297,20 @@ function doCurrent() {
     current.select.classList.add('selected')
 }
 
-let open
+let everything
 
 fs.readFile("test.json", function(err, data) {
-    open = JSON.parse(data)
-    Object.setPrototypeOf(open, Project.prototype)
-    open.setup()
+    everything = JSON.parse(data)
+    for (let i = 0; i < everything.length; i++) {
+        Object.setPrototypeOf(everything[i], Project.prototype)
+        everything[i].setup()
+    }
+    open = everything[0]
     updateProject(open, true)
+    updateEverything()
 })
 
 function save() {
-    let json = JSON.parse(JSON.stringify(open))
+    let json = JSON.parse(JSON.stringify(everything))
     fs.writeFile("test.json", JSON.stringify(json, null, '\t'), function(err) {})
 }

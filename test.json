@@ -1,26 +1,33 @@
-{
-	"title": "Hi COWW",
-	"categories": [
-		{
-			"title": "New Category",
-			"items": [
-				{
-					"title": "New Item",
-					"description": "Description",
-					"date": "2018-05-16"
-				}
-			],
-			"select": {}
-		},
-		{
-			"title": "New Category",
-			"items": [],
-			"select": {}
-		},
-		{
-			"title": "New Category",
-			"items": [],
-			"select": {}
-		}
-	]
-}
+[
+	{
+		"title": "h",
+		"categories": [
+			{
+				"title": "New Category",
+				"items": [
+					{
+						"title": "New Itemdad",
+						"description": "Description",
+						"date": "2018-05-17"
+					}
+				],
+				"select": {}
+			},
+			{
+				"title": "New Category",
+				"items": [],
+				"select": {}
+			}
+		]
+	},
+	{
+		"title": "h",
+		"categories": [
+			{
+				"title": "New Category",
+				"items": [],
+				"select": {}
+			}
+		]
+	}
+]
