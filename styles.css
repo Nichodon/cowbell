@@ -177,16 +177,21 @@ i {
 .column .add i {
     margin: 10px;
 }
-.frame h1 {
+.bar {
+    align-items: center;
     background-color: #096;
+    display: flex;
+}
+#title {
     color: #fff;
+    flex-grow: 1;
     font-size: 18px;
     padding: 10px;
 }
-h1 i {
+.bar i {
+    color: #fff;
     opacity: 1;
-    position: absolute;
-    right: 10px;
+    padding: 10px;
 }
 .item {
     align-items: center;

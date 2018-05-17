@@ -120,7 +120,7 @@ function modify(e) {
 
 function bigChoose(e) {
     open = everything[index(e)]
-    updateProject(open)
+    updateProject(open, true)
 }
 
 function removeItem(e) {
@@ -266,6 +266,7 @@ function updateProject(p, a) {
     doCurrent()
 
     document.getElementById('window').classList.add('show')
+    document.getElementById('title').innerHTML = p.title
 }
 
 function updateEverything() {
