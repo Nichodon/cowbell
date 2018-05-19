@@ -129,6 +129,7 @@ i {
 }
 #project div {
     background-color: #eee;
+    flex-shrink: 0;
     overflow: hidden;
     padding: 10px;
     position: relative;
@@ -197,6 +198,7 @@ i {
     align-items: center;
     border-bottom: 1px solid #eee;
     display: flex;
+    flex-shrink: 0;
     margin: 10px 10px 0 10px;
     overflow: hidden;
 }
