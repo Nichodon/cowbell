@@ -5,7 +5,10 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
-        <div id="menu"></div>
+        <div class="start">
+            <div id="menu"></div>
+            <i class="material-icons">add_circle</i>
+        </div>
         <div class="frame">
             <div class="top">
                 <img src="cowbell.png">
@@ -14,7 +17,7 @@
                 <i class="material-icons" onclick="max()">add</i>
                 <i class="material-icons clear" onclick="destroy()">clear</i>
             </div>
-            <div id="window" style="display: none;">
+            <div id="window">
                 <div class="bar">
                     <h1 id="title"></h1>
                     <i class="material-icons" onclick="toggle()">arrow_downward</i>

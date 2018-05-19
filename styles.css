@@ -46,7 +46,7 @@ input[type=date] {
 i {
     vertical-align: middle;
 }
-#menu {
+.start {
     align-items: center;
     bottom: 50px;
     display: flex;
@@ -56,6 +56,11 @@ i {
     position: fixed;
     right: 200px;
     top: 50px;
+}
+#menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 #menu div {
     align-items: center;
