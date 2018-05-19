@@ -58,15 +58,27 @@ i {
     top: 50px;
 }
 #menu div {
-    background-color: #999;
+    align-items: center;
+    background-color: #888;
     border-radius: 5px;
+    display: flex;
     margin-bottom: 10px;
     width: 100%;
 }
 #menu h1 {
+    background-color: #999;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
     color: #fff;
+    flex-grow: 1;
     font-size: 24px;
     padding: 10px;
+}
+#menu i {
+    padding-left: 10px;
+}
+#menu i:last-child {
+    padding-right: 10px;
 }
 .frame {
     display: flex;

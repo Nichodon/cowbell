@@ -278,13 +278,23 @@ function updateEverything() {
         let j = everything[i]
         
         let thing = document.createElement('div')
-        thing.onclick = function() {
-            bigChoose(thing)
-        }
 
         let h1 = document.createElement('h1')
+        h1.onclick = function() {
+            bigChoose(thing)
+        }
         h1.innerHTML = j.title
         thing.appendChild(h1)
+
+        let edit = document.createElement('i')
+        edit.classList.add('material-icons')
+        edit.innerHTML = 'edit'
+        thing.appendChild(edit)
+
+        let clear = document.createElement('i')
+        clear.classList.add('material-icons')
+        clear.innerHTML = 'clear'
+        thing.appendChild(clear)
 
         div.appendChild(thing)
     }
