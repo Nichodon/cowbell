@@ -44,6 +44,16 @@ class Project {
     }
 }
 
+class Tasks {
+    constructor() {
+        this.overdue = []
+        this.today = []
+        this.tomorrow = []
+        this.week = []
+        this.later = []
+    }
+}
+
 let projects = []
 let current
 const remote = require('electron').remote
@@ -78,7 +88,7 @@ function select(e) {
 }
 
 function newItem() {
-    let i = new Item('New Item', 'Description', new Date().toISOString().split('T')[0])
+    let i = new Item('New Item', 'Description', getISO(new Date()))
     current.addItem(i)
     updateCategory(current, false)
     save()
@@ -138,8 +148,8 @@ function removeCategory(e) {
         open.categories.splice(index(e), 1)
         e.parentNode.removeChild(e)
         current = open.categories[0]
-        updateProject(open)
-        updateCategory(current)
+        updateProject(open, true)
+        updateCategory(current, true)
     }, 200)
     save()
 }
@@ -150,6 +160,48 @@ document.body.addEventListener('click', function(e) {
         content = null
     }
 })
+
+function getISO(date) {
+    return date.toISOString().split('T')[0]
+}
+
+function sortItems() {
+    let big = []
+    for (let i = 0; i < everything.length; i++) {
+        for (let j = 0; j < everything[i].categories.length; j++) {
+            for (let k = 0; k < everything[i].categories[j].items.length; k++) {
+                big.push(everything[i].categories[j].items[k])
+            }
+        }
+    }
+    big.sort(function(a, b) {
+        return new Date(a.date) - new Date(b.date)
+    })
+
+    let tasks = new Tasks()
+    
+    var next = new Date()
+    next.setDate(next.getDate() + 1)
+    
+    var after = new Date()
+    after.setDate(after.getDate() + 7)
+
+    for (let i = 0; i < big.length; i++) {
+        if (getISO(new Date()) ==  getISO(new Date(big[i].date))) {
+            tasks.today.push(big[i])
+        } else if (new Date(big[i].date) - new Date() < 0) {
+            tasks.overdue.push(big[i])
+        } else if (new Date(big[i].date) - next < 0) {
+            tasks.tomorrow.push(big[i])
+        } else if (new Date(big[i].date) - after < 0) {
+            tasks.week.push(big[i])
+        } else {
+            tasks.later.push(big[i])
+        }
+    }
+
+    console.log(tasks)
+}
 
 function updateCategory(c, a) {
     let div = document.getElementById('category')
@@ -254,7 +306,7 @@ function updateProject(p, a) {
         div.appendChild(wrap)
 
         title.style.animation = 'slide 0'
-        if (i == p.categories.length - 1) {
+        if (!a && i == p.categories.length - 1) {
             title.style.animation = 'slide 0.2s'
         }
     }
@@ -319,6 +371,8 @@ fs.readFile("test.json", function(err, data) {
     open = everything[0]
     updateProject(open, true)
     updateEverything()
+
+    sortItems()
 })
 
 function save() {
