@@ -6,6 +6,9 @@
     </head>
     <body>
         <div class="start">
+            <div class="all">
+                <h1 onclick="showTasks()">All Tasks</h1>
+            </div>
             <div id="menu"></div>
             <i class="material-icons">add_circle</i>
         </div>
@@ -17,24 +20,33 @@
                 <i class="material-icons" onclick="max()">add</i>
                 <i class="material-icons clear" onclick="destroy()">clear</i>
             </div>
-            <div id="window">
-                <div class="bar">
-                    <h1 id="title"></h1>
-                    <i class="material-icons" onclick="toggle()">arrow_downward</i>
+            <div id="container">
+                <div id="window">
+                    <div class="bar">
+                        <h1 id="title"></h1>
+                        <i class="material-icons" onclick="toggle()">arrow_downward</i>
+                    </div>
+                    <div class="main">
+                        <div class="selector">
+                            <div id="project"></div>
+                            <div class="add">
+                                <p><i class="material-icons" onclick="newCategory()">add_circle</i></p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div id="category"></div>
+                            <div class="add">
+                                <i class="material-icons" onclick="newItem()">add</i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="main">
-                    <div class="selector">
-                        <div id="project"></div>
-                        <div class="add">
-                            <p><i class="material-icons" onclick="newCategory()">add_circle</i></p>
-                        </div>
+                <div id="second">
+                    <div class="bar">
+                        <h1>All Tasks</h1>
+                        <i class="material-icons" onclick="flip()">arrow_downward</i>
                     </div>
-                    <div class="column">
-                        <div id="category"></div>
-                        <div class="add">
-                            <i class="material-icons" onclick="newItem()">add</i>
-                        </div>
-                    </div>
+                    <div id="list"></div>
                 </div>
             </div>
         </div>

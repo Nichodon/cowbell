@@ -76,6 +76,10 @@ function toggle() {
     document.getElementById('window').classList.remove('show')
 }
 
+function flip() {
+    document.getElementById('second').classList.remove('show')
+}
+
 function addProject(p) {
     projects.push(p)
 }
@@ -201,6 +205,33 @@ function sortItems() {
     }
 
     console.log(tasks)
+    let div = document.getElementById('list')
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
+    for (let i = 0; i < tasks.overdue.length; i++) {
+        let j = tasks.overdue[i]
+        
+        let item = document.createElement('div')
+        item.classList.add('item')
+        
+        let date = document.createElement('input')
+        date.type = 'date'
+        date.classList.add('date')
+        date.required = true
+        date.value = j.date
+        date.disabled = true
+        item.appendChild(date)
+
+        let fixed = document.createElement('div')
+
+        let h2 = document.createElement('h2')
+        h2.innerHTML = j.title
+        fixed.appendChild(h2)
+
+        item.appendChild(fixed)
+        div.appendChild(item)
+    }
 }
 
 function updateCategory(c, a) {
@@ -358,6 +389,10 @@ function doCurrent() {
         j.select.classList.remove('selected')
     }
     current.select.classList.add('selected')
+}
+
+function showTasks() {
+    document.getElementById('second').classList.add('show')
 }
 
 let everything
