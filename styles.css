@@ -113,6 +113,14 @@ i {
     transition-timing-function: ease-in-out;
     width: 100%;
 }
+#list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+#list .item {
+    width: 768px;
+}
 #list h1 {
     align-self: center;
     border-bottom: 1px solid #ccc;
